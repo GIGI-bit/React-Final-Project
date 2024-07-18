@@ -1,0 +1,130 @@
+/* .container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+}
+
+.element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  transform-origin: -90px 90px;
+}
+
+.spin {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+ */
+
+/* nav {
+  margin-bottom: 20px;
+}
+
+.wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wheel {
+  width: 800px;
+  height: 800px;
+  border: 10px solid #333;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.spin-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+} */
+
+nav {
+  margin-bottom: 20px;
+}
+
+.wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wheel {
+  width: 800px;
+  height: 800px;
+  border: 10px solid #333;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.spin-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header-ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 15vw;
+  gap: 2vw;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4vh 17vh;
+
+  z-index: 4;
+}
+
+.header-btn {
+  background-color: transparent;
+  color: rgba(51, 51, 51, 1);
+  font-size: 2vh;
+}
+
+.header-logo {
+  width: 9vw;
+  height: 6vh;
+}
+
+.basket-btn {
+  background-color: transparent;
+}
+
+.spinner-div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 60vh;
+}
+
+.food-details-div {
+  margin-right: 3vh;
+  margin-top: 11vh;
+}
+
+.food-ingredients {
+  font-size: 4vh;
+}
