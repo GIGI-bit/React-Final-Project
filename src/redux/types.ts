@@ -12,8 +12,13 @@ export type FoodState = {
   selectedFood: Food;
 };
 
+export type BasketState = {
+  basketItems: Food[];
+};
+
 export type RootState = {
   theme: ThemeState;
   meal: MealState;
   food: FoodState;
+  basket: BasketState;
 };

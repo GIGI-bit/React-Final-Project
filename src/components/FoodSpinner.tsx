@@ -19,7 +19,6 @@ import FoodDetails from "./FoodDetails";
 import "../../styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import "../redux/Slicers/themeSlicer";
-import { useAsyncError } from "react-router-dom";
 import axios from "axios";
 import { setTheme } from "../redux/Slicers/themeSlicer";
 import { dark, light } from "../redux/theme";
