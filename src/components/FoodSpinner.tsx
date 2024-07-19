@@ -8,8 +8,10 @@ import {
   ImageWrapper,
   SmallCoveringDiv,
   CircleDiv,
+  ReverseButton,
   RoundedDiv,
   CoveringDiv,
+  SelectedMeal,
 } from "../assets/styledComponents";
 import database from "../../Database.json";
 import Arrow from "../assets/images/arrow.png";
@@ -23,6 +25,9 @@ import { setTheme } from "../redux/Slicers/themeSlicer";
 import { dark, light } from "../redux/theme";
 import { RootState } from "../redux/store";
 import { setFood } from "../redux/Slicers/foodSlicer";
+import { setMeal } from "../redux/Slicers/mealSlicer";
+import Basket from "../assets/images/basket.png";
+import Logo from "../assets/images/logo.png";
 
 export type Food = {
   id: Number;
@@ -42,6 +47,7 @@ const FoodSpinner = () => {
   const selectedFood = useSelector(
     (state: RootState) => state.food.selectedFood
   );
+
   const dispatch = useDispatch();
   const [meals, setMeals] = useState<Food[]>([]);
   const [rotation, setRotation] = useState(0);
@@ -64,22 +70,73 @@ const FoodSpinner = () => {
 
   const handleMealClick = (meal: Food) => {
     dispatch(setFood(meal));
+
+    console.log("handle meal :>> ");
   };
 
   const handleRotate = () => {
     setRotation((prevRotation) => prevRotation + 45);
   };
 
+  const handleReverseRotate = () => {
+    setRotation((prevRotation) => prevRotation - 45);
+  };
+
+  const handleSelectMeal = (
+    meal: "BreakfastFood" | "LunchFood" | "DinnerFood"
+  ) => {
+    dispatch(setMeal(meal));
+  };
+
   return (
     <div>
+      <header className="header">
+        <div>
+          <img className="header-logo" src={Logo} alt="" />
+        </div>
+
+        <div className="header-ul-div">
+          <ul className="header-ul">
+            <li className="header-li">
+              <button
+                onClick={() => handleSelectMeal("BreakfastFood")}
+                className="header-btn"
+              >
+                Breakfast
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleSelectMeal("LunchFood")}
+                className="header-btn"
+              >
+                Lunch
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleSelectMeal("DinnerFood")}
+                className="header-btn"
+              >
+                Dinner
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <button className="basket-btn">
+            <img src={Basket} alt="" />
+          </button>
+        </div>
+      </header>
+
       <RoundedDiv
         color={
           currentTheme === "light" ? light.circle_color : dark.circle_color
         }
       />
-
       <div className="spinner-div">
-        <FoodDetails />
+        {selectedFood && <FoodDetails food={selectedFood} />}
         <CircleWrapper rotation={rotation}>
           <Circle>
             {meals[selectedMeal] &&
@@ -96,13 +153,26 @@ const FoodSpinner = () => {
           </Circle>
           <CircleDiv />
         </CircleWrapper>
-        <Button onClick={handleRotate}>
+        <SelectedMeal src={selectedFood.image} />
+        <Button
+          onClick={handleRotate}
+          color={
+            currentTheme === "light" ? light.button_color : dark.button_color
+          }
+        >
           <img src={Arrow} alt="" />
         </Button>
+        <ReverseButton
+          onClick={handleReverseRotate}
+          color={
+            currentTheme === "light" ? light.button_color : dark.button_color
+          }
+        >
+          <img src={Arrow} alt="" />
+        </ReverseButton>
         <CoveringTriangleDiv />
         <CoveringDiv />
         <SmallCoveringDiv />
-        {/* {selectedMeal && <FoodDetails meal={selectedMeal} />} */}
       </div>
     </div>
   );

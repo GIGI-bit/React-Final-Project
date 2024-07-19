@@ -1,13 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
-import { useTheme } from "styled-components";
 import { RootState } from "../redux/store";
 import { dark, light } from "../redux/theme";
 import { FoodPrice, OrderButton } from "../assets/styledComponents";
-import Food from "../components/FoodSpinner";
+import { Food } from "../components/FoodSpinner";
 
-const FoodDetails = () => {
+interface FoodType {
+  food: Food;
+}
+
+const FoodDetails: React.FC<FoodType> = ({ food }) => {
   const currentTheme = useSelector(
     (state: RootState) => state.theme.currentTheme
   );
@@ -19,10 +21,10 @@ const FoodDetails = () => {
           currentTheme === "light" ? light.button_color : dark.button_color
         }
       >
-        ${}
+        ${food.price}
       </FoodPrice>
-      <p className="food-name"></p>
-      <p className="food-ingredients"></p>
+      <p className="food-name">{food.name}</p>
+      <p className="food-ingredients">{food.disclosure}</p>
       <OrderButton
         color={
           currentTheme === "light" ? light.button_color : dark.button_color

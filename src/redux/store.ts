@@ -8,6 +8,7 @@ const store = configureStore({
     theme: themeReducer,
     meal: mealReducer,
     food: foodReducer,
+    basket:
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

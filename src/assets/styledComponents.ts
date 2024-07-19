@@ -51,10 +51,21 @@ import styled from "styled-components";
 const Button = styled.button`
   position: absolute;
   top: 65vh;
-  left: 76vh;
-  background: rgba(255, 146, 44, 1);
+  right: 10vh;
+  background: ${(props) => props.color};
   height: 6vh;
   border-radius: 50%;
+  z-index: 3;
+`;
+
+const ReverseButton = styled.button`
+  position: absolute;
+  top: 65vh;
+  left: 82vh;
+  background: ${(props) => props.color};
+  height: 6vh;
+  border-radius: 50%;
+  z-index: 3;
 `;
 
 const CircleDiv = styled.div`
@@ -75,7 +86,7 @@ const CircleWrapper = styled.div<{ rotation: number }>`
   position: relative;
   width: 300px;
   height: 300px;
-  margin-right: 25vh;
+  margin-right: 35vh;
   margin-top: 25vh;
 
   border-radius: 50%;
@@ -129,12 +140,12 @@ const CoveringTriangleDiv = styled.div`
   position: absolute;
   width: 11vw;
   height: 4.5vh;
-  top: 29vh;
-  left: 45vw;
+  top: 29.8vh;
+  left: 46.4vw;
   border-top: 140px solid transparent;
   border-left: 170px solid white;
   /* background-color: white; */
-  transform: rotate(-12deg);
+  transform: rotate(-16deg);
 `;
 
 const SmallCoveringDiv = styled.div`
@@ -148,7 +159,7 @@ const SmallCoveringDiv = styled.div`
 `;
 
 const FoodPrice = styled.h2`
-  font-size: 11vh;
+  font-size: 9vh;
   color: ${(props) => props.color};
 `;
 
@@ -157,20 +168,48 @@ const OrderButton = styled.button`
   color: white;
   padding: 2vh 5vh;
   border-radius: 7vh;
+  font-size: 2vh;
+  font-weight: 700;
+  margin-top: 2vh;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 1) 0px 30px 60px -30px;
 `;
 
-const SelectedMeal = styled.img``;
+const SelectedMeal = styled.img`
+  position: absolute;
+  right: 20vw;
+  top: 30vh;
+  width: 20%;
+  border-radius: 50%;
+  z-index: 3;
+`;
+
+const BasketContainer = styled.div`
+  position: absolute;
+  border: 1px gray solid;
+  /* width: 40vw;
+  height: 20vh; */
+  left: 50%;
+  top: 50%;
+  padding: 2vh 4vh;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transform: translate(-50%, -50%);
+`;
 
 export {
   ImageWrapper,
   OrderButton,
   CoveringDiv,
   RoundedDiv,
+  BasketContainer,
   SmallCoveringDiv,
   Circle,
   FoodPrice,
   CircleDiv,
+  ReverseButton,
   CircleWrapper,
   Button,
+  SelectedMeal,
   CoveringTriangleDiv,
 };

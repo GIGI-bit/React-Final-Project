@@ -116,15 +116,20 @@ nav {
 .spinner-div {
   position: relative;
   display: flex;
-  justify-content: center;
-  gap: 60vh;
+  justify-content: space-between;
+  gap: 10vh;
 }
 
 .food-details-div {
-  margin-right: 3vh;
+  margin-left: 10vh;
   margin-top: 11vh;
+  width: 30vw;
+}
+.food-name {
+  font-size: 4vh;
+  font-weight: 600;
 }
 
 .food-ingredients {
-  font-size: 4vh;
+  font-size: 2vh;
 }

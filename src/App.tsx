@@ -40,12 +40,13 @@
 
 import FoodSpinner from "./components/FoodSpinner";
 import Header from "./components/Header";
+import BasketPage from "./components/BasketPage";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <FoodSpinner />
+      {/* <FoodSpinner /> */}
+      <BasketPage />
     </div>
   );
 };
