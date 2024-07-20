@@ -27,13 +27,15 @@ import { setFood } from "../redux/Slicers/foodSlicer";
 import { setMeal } from "../redux/Slicers/mealSlicer";
 import Basket from "../assets/images/basket.png";
 import Logo from "../assets/images/logo.png";
+import User from "../assets/user.png";
+import { useNavigate } from "react-router-dom";
 
 export type Food = {
-  id: Number;
+  id: String;
   name: String;
   disclosure: String;
   price: Number;
-  image: String;
+  image: string;
 };
 
 const FoodSpinner = () => {
@@ -46,7 +48,7 @@ const FoodSpinner = () => {
   const selectedFood = useSelector(
     (state: RootState) => state.food.selectedFood
   );
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [meals, setMeals] = useState<Food[]>([]);
   const [rotation, setRotation] = useState(0);
@@ -87,6 +89,14 @@ const FoodSpinner = () => {
     dispatch(setMeal(meal));
   };
 
+  const handleBasketBtn = () => {
+    navigate("/foodSpinner/cart");
+  };
+
+  const handleUserBtn = () => {
+    navigate("/foodSpinner/user");
+  };
+
   return (
     <div>
       <header className="header">
@@ -123,8 +133,11 @@ const FoodSpinner = () => {
           </ul>
         </div>
         <div>
-          <button className="basket-btn">
+          <button onClick={handleBasketBtn} className="basket-btn">
             <img src={Basket} alt="" />
+          </button>
+          <button onClick={handleUserBtn} className="user-btn">
+            <img src={User} alt="" />
           </button>
         </div>
       </header>
@@ -141,7 +154,7 @@ const FoodSpinner = () => {
             {meals[selectedMeal] &&
               meals[selectedMeal].map((item: Food, index) => (
                 <ImageWrapper
-                  key={item.id}
+                  key={Number(item.id)}
                   index={index}
                   total={database.BreakfastFood.length}
                   onClick={() => handleMealClick(item)}

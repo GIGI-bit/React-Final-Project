@@ -1,11 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { dark, light } from "../redux/theme";
 import { FoodPrice, OrderButton } from "../assets/styledComponents";
 import { Food } from "../components/FoodSpinner";
+import { addToBasket } from "../redux/Slicers/basketSlicer";
 
-interface FoodType {
+export interface FoodType {
   food: Food;
 }
 
@@ -13,6 +14,10 @@ const FoodDetails: React.FC<FoodType> = ({ food }) => {
   const currentTheme = useSelector(
     (state: RootState) => state.theme.currentTheme
   );
+  const dispatch = useDispatch();
+  const handleOrder = () => {
+    dispatch(addToBasket(food));
+  };
 
   return (
     <div className="food-details-div">
@@ -29,6 +34,7 @@ const FoodDetails: React.FC<FoodType> = ({ food }) => {
         color={
           currentTheme === "light" ? light.button_color : dark.button_color
         }
+        onClick={handleOrder}
       >
         Order Now
       </OrderButton>

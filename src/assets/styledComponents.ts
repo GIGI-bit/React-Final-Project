@@ -1,53 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import styled from "styled-components";
 
-// import { styled } from "styled-component";
-
-// const Div = styled.div`
-//   @keyframes spin {
-//     from {
-//       transform: rotate(${(props) => (${props.degre}deg)});
-//     }
-//     to {
-//       transform: rotate(${(props) => (${props.degre + 360}deg)});
-//     }
-//   }
-// `;
-
-// const Button = styled.button`
-//   margin: 20px;
-//   padding: 10px 20px;
-//   font-size: 16px;
-// `;
-// const CircleWrapper = styled.div<{ rotation: number }>`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: relative;
-//   width: 300px;
-//   height: 300px;
-//   border-radius: 50%;
-//   transform: rotate(${(props) => props.rotation}deg);
-//   transition: transform 0.5s ease;
-// `;
-
-// const Circle = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   position: relative;
-//   border-radius: 50%;
-// `;
-
-// const ImageWrapper = styled.div<{ index: number; total: number }>`
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   width: 60px;
-//   height: 60px;
-//   margin: -30px 0 0 -30px;
-//   transform: ${(props) => `rotate(${(props.index * 360) / props.total}deg)`};
-//   transform-origin: center center;
-// `;
 const Button = styled.button`
   position: absolute;
   top: 65vh;
@@ -188,13 +141,16 @@ const SelectedMeal = styled.img`
 const BasketContainer = styled.div`
   position: absolute;
   border: 1px gray solid;
-  /* width: 40vw;
-  height: 20vh; */
+  width: 60vw;
+  height: 20vh;
   left: 50%;
   top: 50%;
-  padding: 2vh 4vh;
+  padding: 3vh 4vh;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   transform: translate(-50%, -50%);
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 export {

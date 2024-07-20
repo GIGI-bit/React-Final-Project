@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Food } from "../../components/FoodSpinner";
 
-let arr: Food = [];
+let arr: Food[] = [];
 
 const basketSlice = createSlice({
   name: "basket",
   initialState: { basketItems: arr },
   reducers: {
     addToBasket: (state, action: PayloadAction<Food>) => {
-      state.basketItems = action.payload;
+      state.basketItems.push(action.payload);
     },
   },
 });

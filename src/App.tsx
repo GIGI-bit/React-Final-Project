@@ -41,14 +41,22 @@
 import FoodSpinner from "./components/FoodSpinner";
 import Header from "./components/Header";
 import BasketPage from "./components/BasketPage";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import LogInPage from "./components/LogInPage";
+import UserPage from "./components/UserPage";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      {/* <FoodSpinner /> */}
-      <BasketPage />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<LogInPage />} />
+        <Route path="/foodSpinner" element={<FoodSpinner />} />
+        <Route path="/foodSpinner/cart" element={<BasketPage />} />
+        <Route path="/foodSpinner/user" element={<UserPage />} />
+        <Route path="*" element={<h2>Page Not Found 404</h2>} />
+      </Routes>
+    </>
   );
-};
+}
 
 export default App;

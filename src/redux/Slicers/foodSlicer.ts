@@ -4,7 +4,7 @@ import { Food } from "../../components/FoodSpinner";
 import mealSlicer from "./mealSlicer";
 
 const food: Food = {
-  id: 0,
+  id: "0",
   name: "defaul",
   disclosure: "default",
   price: 0,
